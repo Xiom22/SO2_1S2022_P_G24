@@ -6,8 +6,8 @@ class QueryBook{
     }
 
     update(book){
-        return `UPDATE book SET precio = ${book.precio}, nombre = '${book.nombre}' 
-        WHERE id = '${book.id}'`
+        return `UPDATE libro SET precio = ${book.precio}, nombre = '${book.nombre}' 
+        WHERE id = ${book.id}`
     }
 
     read(id){
