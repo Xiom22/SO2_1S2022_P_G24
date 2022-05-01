@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Libro, ResponseGeneric, Seller, Vendedor } from './models';
+import { BookService } from './services/book.service';
 import { SellerService } from './services/seller.service';
 
 @Component({
@@ -18,12 +19,14 @@ export class AppComponent implements OnInit {
   books:Libro[] = []
 
   constructor(
-    private sellerService:SellerService
+    private sellerService:SellerService,
+    private bookService: BookService
   ){}
 
   ngOnInit(): void {
     this.verVendedores()
     this.listarVendedores()
+    this.verLibros()
   }
 
   crearVendedor(){
@@ -43,6 +46,7 @@ export class AppComponent implements OnInit {
     this.sellerService.update(this.newVendedor).subscribe(
       (res:ResponseGeneric) => {
         if(res.status == 200){
+          this.newVendedor = {}
           this.verVendedores()
           this.listarVendedores()
         } 
@@ -59,15 +63,43 @@ export class AppComponent implements OnInit {
     )
   }
 
-  editarVendedor(v:Vendedor){
-    this.newVendedor = v
-  }
-
   listarVendedores(){
     this.sellerService.listar().subscribe(
       (res:ResponseGeneric) => {
         console.log(res.data)
         this.listVendedor = res.data
+      }
+    )
+  }
+
+  verLibros(){
+    this.bookService.read().subscribe(
+      (res:ResponseGeneric) =>{
+        this.books = res.data
+      }
+    )
+  }
+
+  crearLibro(){
+    this.bookService.create(this.newLibro).subscribe(
+      (res:ResponseGeneric) => {
+        if(res.status == 200){
+          this.newLibro = {}
+          this.verLibros()
+        } 
+        else alert(res.msg)
+      }
+    )
+  }
+
+  modificarLibro(){
+    this.bookService.update(this.newLibro).subscribe(
+      (res:ResponseGeneric) => {
+        if(res.status == 200){
+          this.newLibro = {}
+          this.verLibros()
+        } 
+        else alert(res.msg)
       }
     )
   }

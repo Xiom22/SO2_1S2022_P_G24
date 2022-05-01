@@ -8,11 +8,7 @@
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
     <div class="container">
-
-    </div>
-  </div>
-  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-    <div class="container">
+      
       <form class="row g-3">
         <div class="col-md-4">
           <label for="inputState" class="form-label">Libro</label>
@@ -30,33 +26,40 @@
           <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
       </form>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <div class="container">
+      <form class="row mt-2 g-3">
+        <div class="col-6">
+          <label for="inputName" class="form-label">Nombre</label>
+          <input type="text" name="nombre" [(ngModel)] = newLibro.nombre class="form-control" id="inputName">
+        </div>
+        <div class="col-6">
+          <label for="inputLast" class="form-label">Precio</label>
+          <input type="text" name="apellido" [(ngModel)] = newLibro.precio class="form-control" id="inputLast">
+        </div>
+        <div class="col-6">
+          <button type="submit" (click) = "crearLibro()" class="btn btn-primary">Guardar</button>
+        </div>
+        <div class="col-6">
+          <button type="submit" (click) = "modificarLibro()" class="btn btn-primary">Editar</button>
+        </div>
+      </form>
       <div class="row justify-content-center align-items-center">
         <table class="table table-hover">
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Precio</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
+            <tr *ngFor = "let b of books" (click)="newLibro = b">
+              <th scope="row">{{b.id}}</th>
+              <td>{{b.nombre}}</td>
+              <td>{{b.precio}}</td>
             </tr>
           </tbody>
         </table>
@@ -94,7 +97,7 @@
         </div>
       </form>
       
-      <div class="row justify-content-center align-items-center">
+      <div class="row justify-content-center align-items-center mt-2">
         <table class="table table-hover">
           <thead>
             <tr>
@@ -107,7 +110,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor = "let v of vendedores" (click)="editarVendedor(v)">
+            <tr *ngFor = "let v of vendedores" (click)="newVendedor = v">
               <th scope="row">{{v.id_vendedor}}</th>
               <td>{{v.dpi}}</td>
               <td>{{v.nombre}}</td>
