@@ -35,7 +35,7 @@ export interface Venta{
     id_vendedor ?:number
 }
 
-export interface Venta{
+export interface Sell{
     id_venta ?: number,
     id_libro ?: number,
     nombre ?: string,
