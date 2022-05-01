@@ -1,0 +1,123 @@
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Ventas</button>
+    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Libros</button>
+    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Vendedores</button>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <div class="container">
+
+    </div>
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <div class="container">
+      <form class="row g-3">
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">Libro</label>
+          <select id="inputState" name="libros" [(ngModel)]="book" class="form-select">
+            <option *ngFor="let b of books" [value] = "b.id">{{b.nombre}} </option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="inputState"   class="form-label">Vendedor</label>
+          <select id="inputState" name="vends" [(ngModel)]="seller" class="form-select">
+            <option *ngFor="let v of listVendedor" [value] = "v.id_vendedor">{{v.vendedor}}</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+      <div class="row justify-content-center align-items-center">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <div class="container">
+      <form class="row mt-2 g-3">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">DPI</label>
+          <input type="text" name="dpi" [(ngModel)] = newVendedor.dpi class="form-control" id="inputEmail4">
+        </div>
+        <div class="col-6">
+          <label for="inputName" class="form-label">Nombre</label>
+          <input type="text" name="nombre" [(ngModel)] = newVendedor.nombre class="form-control" id="inputName">
+        </div>
+        <div class="col-6">
+          <label for="inputLast" class="form-label">Apellido</label>
+          <input type="text" name="apellido" [(ngModel)] = newVendedor.apellido class="form-control" id="inputLast">
+        </div>
+        <div class="col-6">
+          <label for="inputAddress" class="form-label">Direccion</label>
+          <input type="text" name="direccion" [(ngModel)] = newVendedor.direccion class="form-control" id="inputAddress">
+        </div>
+        <div class="col-6">
+          <label for="inputPhone" class="form-label">Telefono</label>
+          <input type="text" name="telefono" [(ngModel)] = newVendedor.telefono class="form-control" id="inputPhone">
+        </div>
+        <div class="col-6">
+          <button type="submit" (click) = "crearVendedor()" class="btn btn-primary">Guardar</button>
+        </div>
+        <div class="col-6">
+          <button type="submit" (click) = "modificarVendedor()" class="btn btn-primary">Editar</button>
+        </div>
+      </form>
+      
+      <div class="row justify-content-center align-items-center">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">DPI</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Telefono</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let v of vendedores" (click)="editarVendedor(v)">
+              <th scope="row">{{v.id_vendedor}}</th>
+              <td>{{v.dpi}}</td>
+              <td>{{v.nombre}}</td>
+              <td>{{v.apellido}}</td>
+              <td>{{v.direccion}}</td>
+              <td>{{v.telefono}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

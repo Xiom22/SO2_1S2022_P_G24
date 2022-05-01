@@ -1,7 +1,7 @@
 
 class QuerySeller{
     login(auth) {
-        return `SELECT id_user, dpi FROM vendedor WHERE dpi = '${auth.dpi}' and clave = '${auth.clave}'`
+        return `SELECT id_vendedor, concat(dpi, ' - ', nombre, ' ', apellido) as vendedor FROM vendedor WHERE dpi = '${auth.dpi}' and clave = '${auth.clave}'`
     }
     
     create(seller){
@@ -17,6 +17,10 @@ class QuerySeller{
 
     read(id){
         if(id) return `SELECT * FROM vendedor WHERE id_vendedor = ${id}`
+        return `SELECT * FROM vendedor`
+    }
+
+    list(){
         return `SELECT id_vendedor, concat(dpi, ' - ', nombre, ' ', apellido) as vendedor FROM vendedor`
     }
 }

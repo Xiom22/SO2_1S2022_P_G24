@@ -51,3 +51,13 @@ exports.read = async(req,res)=> {
         res.json({status:500, msg:'Error al leer vendedores', data: []})
     }
 }
+
+exports.listar = async(req,res)=> {
+    try {
+        data = await generarConsulta(querys.list())
+        res.json({status:200, msg:'Data obtenida', data})
+    } catch (error) {
+        console.log(error)
+        res.json({status:500, msg:'Error al leer libros', data: []})
+    }
+}

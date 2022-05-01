@@ -11,9 +11,9 @@ class QuerySell{
     }
 
     read(id){
-        if(id) return `SELECT v.*, l.nombre, l.precio, concat(ve.dpi, ' - ', ve.nombre, ' ' , ve.apellido) as vendedor, ve.id_vendedor 
+        if(id) return `SELECT v.*, l.nombre, l.precio, concat(ve.dpi, ' - ', ve.nombre, ' ' , ve.apellido) as vendedor
         FROM venta v, libro l, vendedor ve WHERE id_venta = ${id}`
-        return `SELECT v.*, l.nombre, l.precio, concat(ve.dpi, ' - ', ve.nombre as, ' ' , ve.apellido) as vendedor, ve.id_vendedor 
+        return `SELECT v.*, l.nombre, l.precio, concat(ve.dpi, ' - ', ve.nombre as, ' ' , ve.apellido) as vendedor
         FROM venta v, libro l, vendedor ve`
     }
 }
