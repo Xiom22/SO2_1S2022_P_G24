@@ -10,9 +10,9 @@ class QuerySeller{
     }
 
     update(seller){
-        return `UPDATE vendedor SET dpi = '${seller.dpi}', nombre = '${seller.nombre}',apellido = '${seller.apellido}', 
-        direccion = '${seller.direccion}', telefono = '${seller.telefono}',clave = '${seller.clave}' 
-        WHERE id_vendedor = '${seller.id_vendedor}'`
+        return `UPDATE vendedor SET dpi = '${seller.dpi}', nombre = '${seller.nombre}', apellido = '${seller.apellido}', 
+        direccion = '${seller.direccion}', telefono = '${seller.telefono}' 
+        WHERE id_vendedor = ${seller.id_vendedor}`
     }
 
     read(id){

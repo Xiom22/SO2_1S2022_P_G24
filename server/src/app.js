@@ -13,6 +13,7 @@ app.use(cors())
 //routes
 app.use('/seller',require('./routes/route.seller'))
 app.use('/book',require('./routes/route.book'))
+app.use('/sell',require('./routes/route.sell'))
 
 app.listen(app.get('port'), () => {
     console.log(`Server listen on port ${app.get('port')}`)
