@@ -8,7 +8,7 @@ spec:
   type: LoadBalancer
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 5010
+      targetPort: 5010
   selector:
     app: server
