@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: server
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      role: backend
+      app: server
   minReadySeconds: 20
   strategy:
     rollingUpdate:
@@ -16,10 +16,11 @@ spec:
   template:
     metadata:
       labels:
-        role: backend
+        app: server
     spec:
       containers:
-      - name: backend
-        image: proyectosusac/serverBS
+      - name: server
+        image: proyectosusac/serverbs
+        imagePullPolicy: "Always"
         ports:
         - containerPort: 5010
