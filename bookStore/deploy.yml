@@ -3,10 +3,10 @@ kind: Deployment
 metadata:
   name: frontend
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      role: frontend
+      app: frontend-pod
   minReadySeconds: 20
   strategy:
     rollingUpdate:
@@ -16,7 +16,7 @@ spec:
   template:
     metadata:
       labels:
-        role: frontend
+        app: frontend-pod
     spec:
       containers:
       - name: frontend
