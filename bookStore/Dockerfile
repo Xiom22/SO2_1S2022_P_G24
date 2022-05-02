@@ -17,7 +17,7 @@ RUN npm run build --prod
 
 FROM nginx:1.17.1-alpine
 
-COPY --from=BS /app/dist/bookStore /usr/share/nginx/html
+COPY --from=BS /app/dist/book-store /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx/nginx.conf /etc/nginx/conf.d
 
