@@ -8,7 +8,7 @@ import { ResponseGeneric, Venta } from '../models';
 })
 export class SellService {
 
-  private url = "http://35.232.180.189:5010/sell"
+  private url = "http://34.68.26.103:5010/sell"
   constructor(
     private http: HttpClient
   ) { }
