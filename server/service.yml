@@ -8,6 +8,5 @@ spec:
     - protocol: TCP
       port: 5010
       targetPort: 5010
-      name: http
   selector:
     app: server
