@@ -8,7 +8,7 @@ import { Libro, ResponseGeneric } from '../models';
 })
 export class BookService {
 
-  private url = "http://10.64.10.255:5010/book"
+  private url = "http://server:5010/book"
   constructor(
     private http: HttpClient
   ) { }

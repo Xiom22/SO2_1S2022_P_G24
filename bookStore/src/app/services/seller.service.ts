@@ -8,7 +8,7 @@ import { ResponseGeneric, Vendedor } from '../models';
 })
 export class SellerService {
 
-  private url = "http://10.64.10.255:5010/seller"
+  private url = "http://server:5010/seller"
   constructor(
     private http: HttpClient
   ) { }
