@@ -16,7 +16,7 @@
           </select>
         </div>
         <div class="col-md-4">
-          <label for="inputState"   class="form-label">Calificacion</label>
+          <label for="inputState"   class="form-label">Calificaciones</label>
           <select id="inputState" name="vends" [(ngModel)]="newVenta.id_vendedor" class="form-select">
             <option *ngFor="let v of listVendedor" [value] = "v.id_vendedor">{{v.vendedor}}</option>
           </select>
